@@ -44,20 +44,6 @@ public class MainActivity extends AppCompatActivity {
 
         sparkGraph.start();
 
-        // Gets the textview object from the activity_main...
-        scrubValue = (TextView) findViewById(R.id.scrubValue);
-
-        // A listener for when the spark view is scrubbed...
-        stockHistoryGraph.setScrubListener(new SparkView.OnScrubListener() {
-            @Override
-            public void onScrubbed(Object value) {
-                // When the scrubber is not scrubbing set the value to an empty string...
-                if(value == null) scrubValue.setText("");
-                // Sets the value when the value is not null...
-                else scrubValue.setText(value.toString());
-            }
-        });
-
 
     }
 
@@ -89,6 +75,20 @@ public class MainActivity extends AppCompatActivity {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
+            // Gets the TextView object from the activity_main...
+            scrubValue = (TextView) findViewById(R.id.scrubValue);
+
+            // A listener for when the spark view is scrubbed...
+            stockHistoryGraph.setScrubListener(new SparkView.OnScrubListener() {
+                @Override
+                public void onScrubbed(Object value) {
+                    // When the scrubber is not scrubbing set the value to an empty string...
+                    if(value == null) scrubValue.setText("");
+                        // Sets the value when the value is not null...
+                    else scrubValue.setText(value.toString());
+                }
+            });
         }
 
         public StockHistoryAdapter(float[] yData) {
