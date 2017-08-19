@@ -20,4 +20,10 @@
         app:spark_scrubEnabled="true"
         app:spark_animateChanges="true"/>
 
+    <TextView
+        android:id="@+id/scrubValue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center" />
+
 </LinearLayout>

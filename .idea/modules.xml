@@ -4,7 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Stocks.iml" filepath="$PROJECT_DIR$/Stocks.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\Users\Jacob\Documents\Stocks\app\app.iml" filepath="C:\Users\Jacob\Documents\Stocks\app\app.iml" />
       <module fileurl="file://$PROJECT_DIR$/spark/spark.iml" filepath="$PROJECT_DIR$/spark/spark.iml" />
+      <module fileurl="file://C:\Users\Jacob\Documents\Stocks\spark\spark.iml" filepath="C:\Users\Jacob\Documents\Stocks\spark\spark.iml" />
     </modules>
   </component>
 </project>
