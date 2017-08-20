@@ -28,4 +28,5 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.0'
     compile 'com.robinhood.spark:spark:1.1.2'
     compile 'com.yahoofinance-api:YahooFinanceAPI:3.9.0'
+    implementation 'com.android.support:design:26.0.1'
 }
