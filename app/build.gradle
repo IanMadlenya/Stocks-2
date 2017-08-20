@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    buildToolsVersion '25.0.3'
     defaultConfig {
         applicationId "io.github.mattstoney.stocks"
         minSdkVersion 15
@@ -27,5 +27,6 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.0'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.0'
     compile 'com.robinhood.spark:spark:1.1.2'
-    compile group: 'com.yahoofinance-api', name: 'YahooFinanceAPI', version: '3.9.0'
+    compile 'com.yahoofinance-api:YahooFinanceAPI:3.9.0'
+    implementation 'com.android.support:design:26.0.1'
 }
