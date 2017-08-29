@@ -4,7 +4,7 @@ This is my first android app. It is a work in progress.
 
 ## To Do
 * User input to show user defined stock and time range
-	* Update StockHistoryAdapter contructors to include parameters for symbol & time range
+	* ~~Update StockHistoryAdapter contructors to include parameters for symbol & time range~~
 	* Pull stock symbols for easy user selection (Need to decide on API to use...)
 	* Add defined time ranges for user selection
 * Display current stock price and change this text when user scrubs

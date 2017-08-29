@@ -16,15 +16,15 @@ import yahoofinance.histquotes.Interval;
 
 public class StockHistoryAdapter extends SparkAdapter {
     private float[] yData;
+    private Calendar from;
+    private Calendar to;
 
-    public StockHistoryAdapter() {
+    // Constructor with  default time range of one month
+    public StockHistoryAdapter(Stock stock) {
         try {
-            // Create YahooFinance QCOM stock object as sample
-            Stock stock = YahooFinance.get("QCOM");
-
-            // Configure time range for stock history
-            Calendar from = Calendar.getInstance();
-            Calendar to = Calendar.getInstance();
+            // Configure time range for stock history to one month
+            from = Calendar.getInstance();
+            to = Calendar.getInstance();
             from.add(Calendar.MONTH, -1); // from 1 month ago
 
             List<HistoricalQuote> history = stock.getHistory(from, to, Interval.DAILY);
@@ -32,6 +32,7 @@ public class StockHistoryAdapter extends SparkAdapter {
             // Construct the yData array to the length of the history list
             yData = new float[history.size()];
 
+            // Populate yData with history list
             for (int i = 0, count = yData.length; i < count; i++) {
                 float data = history.get(i).getClose().floatValue();
                 yData[i] = data;
@@ -42,8 +43,30 @@ public class StockHistoryAdapter extends SparkAdapter {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
 
+    // Constructor with defined time range
+    public StockHistoryAdapter(Stock stock, Calendar from) {
+        try {
+            to = Calendar.getInstance();
 
+            // Currently the interval is daily for all time ranges, will need to change this
+            List<HistoricalQuote> history = stock.getHistory(from, to, Interval.DAILY);
+
+            // Construct the yData array to the length of the history list
+            yData = new float[history.size()];
+
+            // Populate yData with history list
+            for (int i = 0, count = yData.length; i < count; i++) {
+                float data = history.get(i).getClose().floatValue();
+                yData[i] = data;
+            }
+
+            notifyDataSetChanged();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public StockHistoryAdapter(float[] yData) {

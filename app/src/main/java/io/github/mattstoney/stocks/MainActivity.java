@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private StockHistoryAdapter adapter;
     private TextView scrubValue;
     private SparkView stockHistoryGraph;
+	private Stock stock;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +35,15 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 try  {
                     stockHistoryGraph = (SparkView) findViewById(R.id.stockhistorygraph);
-                    adapter = new StockHistoryAdapter();
+                    
+					// Create YahooFinance QCOM stock object as sample
+                    stock = YahooFinance.get("QCOM");
+
+                    // Set starting date for stock history
+                    Calendar from = Calendar.getInstance();
+                    from.add(Calendar.MONTH, -2); // two months
+
+                    adapter = new StockHistoryAdapter(stock, from);
 
                     // Gets the TextView object from the activity_main...
                     scrubValue = (TextView) findViewById(R.id.scrubValue);
